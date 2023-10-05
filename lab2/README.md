@@ -17,10 +17,10 @@ Today’s lab will introduce you to [SLURM](https://slurm.schedmd.com/documentat
 
 Today's tasks are as follows:
 
-1. SCW Topology
-2. Creating a job
-3. Run your code from lab 1 on the supercomputer
-4. Working with remote files locally
+1. [SCW Topology](#step-1-scw-topology)
+2. [Creating a job](#step-2-creating-a-job)
+3. [Run your code from lab 1 on the supercomputer](#step-3-run-your-code-from-lab-1-on-the-supercomputer)
+4. [Working with remote files locally](#step-4-working-with-remote-files-locally)
 
 ---
 

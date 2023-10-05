@@ -19,12 +19,12 @@ Today’s lab will introduce you to the GNU/Linux environment used by Supercompu
 
 Today's tasks are as follows:
 
-1. Getting Access to the Supercomputer
-2. Logging in to the Supercomputer
-3. What you now have access to
-4. Basic Linux Commands
-5. Compile some code
-6. Parallelise some code
+1. [Getting Access to the Supercomputer](#step-1-getting-access-to-the-supercomputer)
+2. [Logging in to the Supercomputer](#step-2-logging-in-to-the-supercomputer)
+3. [What you now have access to](#step-3-what-you-now-have-access-to)
+4. [Basic Linux Commands](#step-4-basic-linux-commands)
+5. [Compile some code](#step-5-compile-some-code)
+6. [Parallelise some code](#step-6-parallelise-some-code)
 
 ---
 
