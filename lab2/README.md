@@ -179,7 +179,7 @@ This short program sets up a batch job on the supercomputer, prints the hostname
 > export PROJECT=scw2139
 > ```
 >
-> After saving, run the `bash` command. Now the environment variable `$project` is available every time you need to refer to the SCW project code. If you follow this step, you can replace line 4 of `submit.sh` with:
+> After saving, run the `bash` command. Now the environment variable `$PROJECT` is available every time you need to refer to the SCW project code. If you follow this step, you can replace line 4 of `submit.sh` with:
 >
 > ```bash
 > #SBATCH --account=$PROJECT
