@@ -306,7 +306,7 @@ We’re going to write and compile some C++ code on the supercomputer.
 
 In your home (`cd ~`) directory, create a new sub-directory called `lab1`, enter that directory and create a new subdirectory called `helloworld`, create a new file called `helloworld.cxx` and type the source code as follows using your favourite text editor:
 
-![helloworld.png](helloworld.png)
+![helloworld.png](assets/helloworld.png)
 
 To create an executable file, you need to compile your source code.
 
@@ -411,7 +411,7 @@ And that's all there is to it. The function used as the thread entry point can c
 Below is the `helloworld` program with parallelisation using Pthread. The for loop has been replaced by concurrent threads.
 Create a new file `helloworld-pthread1.cxx` with the source code below.
 
-![helloworld-pthread1.png](helloworld-pthread1.png)
+![helloworld-pthread1.png](assets/helloworld-pthread1.png)
 
 When compiling the program, you will also need to add `-lpthread` to the compile command:
 
@@ -431,7 +431,7 @@ Remember that the address of the variable is passed to the thread (see `&` at Li
 In the callback, the address as to be converted from `void*` to `unsigned int*` (see Line 44).
 Then it is possible to retrieve the numerical value (see Line 47).
 
-![helloworld-pthread2.png](helloworld-pthread2.png)
+![helloworld-pthread2.png](assets/helloworld-pthread2.png)
 
 Create a new file `helloworld-pthread2.cxx` with this source code. You can copy `helloworld-pthread1.cxx` into `helloworld-pthread2.cxx` to save some time:
 
@@ -459,7 +459,7 @@ After the critical section, we release the mutex (see Line 60).
 
 This is what we do in a new file `helloworld-pthread3.cxx`:
 
-![helloworld-pthread3.png](helloworld-pthread3.png)
+![helloworld-pthread3.png](assets/helloworld-pthread3.png)
 
 Compile and run `./helloworld-pthread3.cxx`.
 
