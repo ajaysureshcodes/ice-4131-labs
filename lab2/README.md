@@ -170,7 +170,10 @@ echo EXIT
 This short program sets up a batch job on the supercomputer, prints the hostname and the contents of your home directory to the terminal window, then sleeps for 15s before exiting.
 
 > **PRO TIP:**  
-> If you don't want to remember the project code `scw2139` each time, modify the file `.bashrc` in your home directory and add the following line:
+> If you don't want to remember the project code `scw2139` each time, modify the file `.bashrc` in your home directory:
+>
+> - Run `chmod +w .bashrc` in your home directory to add the write permission to the file
+> - Add the following line to .bashrc:
 >
 > ```bash
 > export PROJECT=scw2139
