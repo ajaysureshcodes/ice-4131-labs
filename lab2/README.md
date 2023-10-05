@@ -21,6 +21,7 @@ Today's tasks are as follows:
 2. [Creating a job](#step-2-creating-a-job)
 3. [Run your code from lab 1 on the supercomputer](#step-3-run-your-code-from-lab-1-on-the-supercomputer)
 4. [Working with remote files locally](#step-4-working-with-remote-files-locally)
+5. [Passwordless access to the Supercomputer](#step-5-passwordless-access-to-the-supercomputer)
 
 ---
 
@@ -329,5 +330,19 @@ Furthermore, you can open the VSCode terminal to submit jobs directly from withi
 ```
 
 You can now submit jobs directly from VSCode.
+
+---
+
+## STEP 5: Passwordless access to the Supercomputer
+
+Supercomputing Wales have put together [a guide](https://portal.supercomputing.wales/index.php/index/password-less-access-with-private-keys/) on how to set up SSH keys for passwordless access to the supercomputer, for Windows:
+
+https://portal.supercomputing.wales/index.php/index/password-less-access-with-private-keys/
+
+Follow these instructions if you dislike entering your password every time you want to do something on the supercomputer.
+
+For Mac/Linux users, there are guides available online for how to generate SSH key pairs with `keygen`, for example:
+
+https://www.geeksforgeeks.org/how-to-generate-ssh-key-with-ssh-keygen-in-linux/
 
 **This concludes lab 2**
