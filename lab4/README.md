@@ -78,8 +78,8 @@ To make it absolutely certain that we make the right choice, let's plot the data
 ```py
 #!/usr/bin/env python3
 
-import matplotlib.pyplot as plt # Plotting liplotRuntime.pybrary
-import pandas as pd # Load the CSV file
+import matplotlib.pyplot as plt # For plotting
+import pandas as pd # Python data analysis library
 
 # Load the spreadsheet
 df = pd.read_csv("runtime.csv")
