@@ -11,7 +11,7 @@
 
 _**NOTE:** If you have not completed the tasks from the [previous labs](../), you should complete those first!_
 
-Today's lab will get you using [Pthread](https://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html) to parallelise a portion of the `SimpleRayTracing`` program from lab 3 with the following steps:
+Today's lab will get you using [Pthread](https://pubs.opengroup.org/onlinepubs/7908799/xsh/pthread.h.html) to parallelise a portion of the `SimpleRayTracing` program from lab 3 with the following steps:
 
 1. Based on the results from lab 3, first decide which compiler to use
    - We can look at the raw numbers in a spreadsheet, or...
