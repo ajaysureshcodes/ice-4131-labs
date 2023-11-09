@@ -83,7 +83,6 @@ matplotlib.use('Agg') # Use the 'Agg' backend, which is non-GUI
 import matplotlib.pyplot as plt # For plotting
 import pandas as pd # Python data analysis library
 
-
 # Load the spreadsheet
 df = pd.read_csv("runtime.csv")
 
