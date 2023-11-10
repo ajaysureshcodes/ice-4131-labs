@@ -233,7 +233,7 @@ Next we will assess the performance of the Intel compiler against the GNU compil
 
 By default the images have a width of 128 pixels and a height of 128 pixels, denoted by 128x128.
 
-- Submit the we created jobs
+- Submit the jobs
 
 ```bash
 sbatch submit-serial-gnu.sh
