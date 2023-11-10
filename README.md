@@ -6,3 +6,4 @@ This repository contains lab scripts for the ICE-4131 High Performance Computing
 - [Lab 2](lab2/README.md)
 - [Lab 3](lab3/README.md)
 - [Lab 4](lab4/README.md)
+- [Lab 5](lab5/README.md)
