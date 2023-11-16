@@ -32,7 +32,7 @@ Today's tasks are as follows:
 4. [Update `CMakeLists.txt` for MPI](#step-4-update-cmakeliststxt-for-mpi)
 5. [Parallelise Code with MPI](#step-5-parallelise-code-with-mpi)
 6. [Run Your Program](#step-6-run-your-program)
-7. []
+7. [Full Performance Evaluation](#step-7-full-performance-evaluation)
 
 ---
 
