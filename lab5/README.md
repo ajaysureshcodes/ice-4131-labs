@@ -358,4 +358,4 @@ cat timing-omp-*.csv >> runtime.csv
 
 We'll use more than one node at a time using MPI (Message Passing Interface). For example, with 8 nodes, it takes only 12 seconds to compute the whole 2048x2048 image. Yes, 12 seconds. The serial code takes 45 minutes. That's a speed up of 225x.
 
-**This concludes lab 3**
+**This concludes lab 5**
