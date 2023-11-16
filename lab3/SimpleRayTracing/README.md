@@ -4,7 +4,7 @@
 > It is a Simple ray tracer to parallelise using PThread, OpenMP, MPI and CUDA.  
 > Original repository: https://github.com/effepivi/SimpleRayTracing
 
-A simple ray-tracer used as an example of application for ICE-4131 High Performance Computing at Bangor University. The code was executed on two desktop PCs, with two different CPUs, using GNU/Linux openSUSE Leap 15.2.
+A simple ray-tracer used as an example application for ICE-4131 High Performance Computing at Bangor University. The code was executed on two desktop PCs, with two different CPUs, using GNU/Linux openSUSE Leap 15.2.
 The same code was also executed on [Supercomputing Wales](https://www.supercomputing.wales/) with two different compilers (g++ 4.8.5 released in 2015 and icc 19.1.2.254 released in 2020).
 The code produces a 2048x2048 image as follows:
 
