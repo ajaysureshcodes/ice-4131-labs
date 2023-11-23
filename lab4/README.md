@@ -200,7 +200,7 @@ As shown in the code here, our source file for our `pthread` implementation is i
 
 A small example application and the steps to parallelising it with `pthread` is available in [`lab4/pthread-example`](./pthread-example/). We will however continue editing files within `lab3/SimpleRayTracing`.
 
-1. You should edit `src/main-pthread.cxx`. You can copy the contents of `main.cxx` into `src/main-pthreads.cxx`, but be careful, there is some code in this file to help you with the command line.
+1. You should edit `src/main-pthreads.cxx`. You can copy the contents of `main.cxx` into `src/main-pthreads.cxx`.
 
    - Compile.
    - Test.
