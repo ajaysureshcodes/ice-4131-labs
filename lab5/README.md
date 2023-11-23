@@ -300,7 +300,7 @@ You can edit `submit-omp.sh` to use your email address in `echo ##SBATCH --mail-
 ```bash
 #!/usr/bin/env bash
 #
-#SBATCH -A scw1563                   # Project/Account (use your own)
+#SBATCH -A scw2139                   # Project/Account (use your own)
 ##SBATCH --mail-user=YOUREMAILADDRESS@bangor.ac.uk # Where to send mail
 #SBATCH --mail-type=END,FAIL         # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --job-name=RT-40-omp         # Job name
