@@ -114,7 +114,7 @@ void showUsage(const std::string& aProgramName);
 void processCmd(int argc, char** argv,
                 string& aFileName,
                 unsigned int& aWidth, unsigned int& aHeight,
-                unsigned char& r, unsigned char& g, unsigned char& b);
+                unsigned char& r, unsigned char& g, unsigned char& b, unsigned int& aNumberOfThreads);
 
 Vec3 applyShading(const Light& aLight,
                   const Material& aMaterial,
@@ -175,10 +175,13 @@ int main(int argc, char** argv)
         unsigned char g = 128;
         unsigned char b = 128;
 
+        // Number of threads
+        unsigned int t = 1;
+
         processCmd(argc, argv,
                    output_file_name,
                    image_width, image_height,
-                   r, g, b);
+                   r, g, b, t);
 
         // Load the polygon meshes
         vector<TriangleMesh> p_mesh_set;
@@ -260,9 +263,10 @@ void showUsage(const std::string& aProgramName)
     std::cerr << "Usage: " << aProgramName << " <option(s)>" << endl <<
         "Options:" << endl <<
         "\t-h,--help\t\t\tShow this help message" << endl <<
-        "\t-s,--size IMG_WIDTH IMG_HEIGHT\tSpecify the image size in number of pixels (default values: 2048 2048)" << endl <<
-        "\t-b,--background R G B\t\tSpecify the background colour in RGB, acceptable values are between 0 and 255 (inclusive) (default values: 128 128 128)" << endl <<
-        "\t-j,--jpeg FILENAME\t\tName of the JPEG file (default value: test.jpg)" << endl <<
+        "\t-t,--threads T\tSpecify the number of threads (default value: 4)" << endl << 
+        "\t-s,--size IMG_WIDTH IMG_HEIGHT\tSpecify the image size in number of pixels (default values: 2048 2048)" << endl << 
+        "\t-b,--background R G B\t\tSpecify the background colour in RGB, acceptable values are between 0 and 255 (inclusive) (default values: 128 128 128)" << endl << 
+        "\t-j,--jpeg FILENAME\t\tName of the JPEG file (default value: test.jpg)" << endl << 
         std::endl;
 }
 
@@ -271,7 +275,8 @@ void showUsage(const std::string& aProgramName)
 void processCmd(int argc, char** argv,
                 string& aFileName,
                 unsigned int& aWidth, unsigned int& aHeight,
-                unsigned char& r, unsigned char& g, unsigned char& b)
+                unsigned char& r, unsigned char& g, unsigned char& b,
+                unsigned int& aNumberOfThreads)
 //-------------------------------------------------------------------
 {
     // Process the command line
@@ -279,7 +284,7 @@ void processCmd(int argc, char** argv,
     while (i < argc)
     {
         std::string arg = argv[i];
-
+        
         if (arg == "-h" || arg == "--help")
         {
             showUsage(argv[0]);
@@ -297,7 +302,7 @@ void processCmd(int argc, char** argv,
                 showUsage(argv[0]);
                 exit(EXIT_FAILURE);
             }
-
+            
             ++i;
             if (i < argc)
             {
@@ -332,7 +337,7 @@ void processCmd(int argc, char** argv,
                 showUsage(argv[0]);
                 exit(EXIT_FAILURE);
             }
-
+            
             ++i;
             if (i < argc)
             {
@@ -345,11 +350,24 @@ void processCmd(int argc, char** argv,
             }
         }
         else if (arg == "-j" || arg == "--jpeg")
-        {
+        {                
             ++i;
             if (i < argc)
             {
                 aFileName = argv[i];
+            }
+            else
+            {
+                showUsage(argv[0]);
+                exit(EXIT_FAILURE);
+            }
+        }
+        else if (arg == "-t" || arg == "--threads")
+        {
+            ++i;
+            if (i < argc)
+            {
+                aNumberOfThreads = stoi(argv[i]);
             }
             else
             {
@@ -365,6 +383,7 @@ void processCmd(int argc, char** argv,
         ++i;
     }
 }
+
 
 
 //------------------------------------------
