@@ -114,7 +114,7 @@ void showUsage(const std::string& aProgramName);
 void processCmd(int argc, char** argv,
                 string& aFileName,
                 unsigned int& aWidth, unsigned int& aHeight,
-                unsigned char& r, unsigned char& g, unsigned char& b, unsigned int& aNumberOfThreads);
+                unsigned char& r, unsigned char& g, unsigned char& b, unsigned int& t);
 
 Vec3 applyShading(const Light& aLight,
                   const Material& aMaterial,
@@ -276,7 +276,7 @@ void processCmd(int argc, char** argv,
                 string& aFileName,
                 unsigned int& aWidth, unsigned int& aHeight,
                 unsigned char& r, unsigned char& g, unsigned char& b,
-                unsigned int& aNumberOfThreads)
+                unsigned int& t)
 //-------------------------------------------------------------------
 {
     // Process the command line
@@ -367,7 +367,7 @@ void processCmd(int argc, char** argv,
             ++i;
             if (i < argc)
             {
-                aNumberOfThreads = stoi(argv[i]);
+                t = stoi(argv[i]);
             }
             else
             {
