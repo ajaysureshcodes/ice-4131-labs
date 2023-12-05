@@ -103,6 +103,8 @@ def displayRuntime(df):
 
                         if nodes > 1:
                             parallelisation_string += " on " + str(nodes) + " nodes";
+                        elif parallelisation_string == "None":
+                            parallelisation_string = "Serial"
 
                     if len(X) and len(Y):
 
@@ -127,60 +129,63 @@ def displayRuntime(df):
     plt.savefig('runtimes.pdf');
     plt.savefig('runtimes.png');
 
-
 def displaySpeedup(df):
-    fig = plt.figure(figsize=(11, 6));
-    ax = plt.subplot(111);
+    fig = plt.figure(figsize=(11, 6))
+    ax = plt.subplot(111)
 
-    colour_id = 1;
+    colour_id = 1
+
+    print(df)
 
     for processor in df["CPU"].unique():
-        test_Processor=df["CPU"] == processor;
+        test_Processor=df["CPU"] == processor
 
         for compiler in df[test_Processor]["Compiler"].unique():
-            test_Compiler=df["Compiler"] == compiler;
+            test_Compiler=df["Compiler"] == compiler
+
+            test1 = df["Parallelisation"] == "None"
+            test2 = df["Number of threads/processes per node"] == 0
+            test3 = df["Number of nodes"] == 1
+            reference = df[test_Compiler & test_Processor & test1 & test2 & test3]["Runtime in sec"]
+            if len(reference) == 0:
+                # No serial run with the same compiler, throw an error
+                raise ValueError(f"No Reference Serial Run with compiler = '{compiler}'")
 
 
-            test1 = df["Parallelisation"] == "None";
-            test2 = df["Number of threads/processes per node"] == 0;
-            test3 = df["Number of nodes"] == 1;
-            reference = df[test_Compiler & test_Processor & test1 & test2 & test3]["Runtime in sec"];
-
-            for parallelisation in df[test_Processor & test_Compiler]["Parallelisation"].unique():
-                test_Parallelisation=df["Parallelisation"] == parallelisation;
+            for parallelisation in df[test_Processor & test_Compiler & ~test1]["Parallelisation"].unique():
+                test_Parallelisation=df["Parallelisation"] == parallelisation
 
                 for nodes in np.sort(df[test_Processor & test_Compiler & test_Parallelisation]["Number of nodes"].unique()):
-                    test_Nodes=df["Number of nodes"] == nodes;
+                    test_Nodes=df["Number of nodes"] == nodes
 
-                    X = [];
-                    Y = [];
+                    X = []
+                    Y = []
 
                     for thread_number in np.sort(df[test_Processor & test_Compiler & test_Parallelisation & test_Nodes]["Number of threads/processes per node"].unique()):
-                        test_thread_number=df["Number of threads/processes per node"] == thread_number;
+                        test_thread_number=df["Number of threads/processes per node"] == thread_number
+                        print(thread_number)
 
-                        runtime = df[test_Processor & test_Compiler & test_Parallelisation & test_Nodes & test_thread_number]["Runtime in sec"];
+                        runtimes = df[test_Processor & test_Compiler & test_Parallelisation & test_Nodes & test_thread_number]["Runtime in sec"]
 
                         i = [];
-                        for temp in runtime:
-                            Y.append(reference / temp);
+                        for temp in runtimes:
+                            Y.append(float(reference / temp));
                             X.append(thread_number * nodes);
 
-                        parallelisation_string = parallelisation;
+                    parallelisation_string = parallelisation;
 
-                        if nodes > 1:
-                            parallelisation_string += " on " + str(nodes) + " nodes";
+                    if nodes > 1:
+                        parallelisation_string += " on " + str(nodes) + " nodes";
 
-                    if len(X) and len(Y):
+                    marker='x';
 
-                        marker='x';
+                    print(f"""plt.plot({X}, {Y}, color=colours[colour_id], label={parallelisation_string});""")
+                    plt.plot(X, Y, color=colours[colour_id], label=parallelisation_string);
+                    plt.scatter(X, Y, color=colours[colour_id], marker=marker);
 
-                        print(parallelisation_string, len(X), len(Y), thread_number);
-                        plt.plot(X, Y, color=colours[colour_id], label=parallelisation_string);
-                        plt.scatter(X, Y, color=colours[colour_id], marker=marker);
-
-                        colour_id += 1;
-                        if colour_id >= len(colours):
-                            colour_id = 0;
+                    colour_id += 1;
+                    if colour_id >= len(colours):
+                        colour_id = 0;
 
 
 
@@ -195,8 +200,8 @@ def displaySpeedup(df):
     plt.xlabel('Total number of threads/processes');
     plt.ylabel('Speedup');
 
-    plt.savefig('speedup.pdf');
-    plt.savefig('speedup.png');
+    plt.savefig('speedup.pdf',figsize=(11,7));
+    plt.savefig('speedup.png',figsize=(11,7));
 
 
 colours = list(mcolors.TABLEAU_COLORS);
