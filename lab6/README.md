@@ -151,6 +151,13 @@ MPI_Finalize()
 
 4. Save the final image:
 
+The rank (process ID) of the process is retrieved as follows:
+
+```cpp
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+```
+
 Several processes, potentially running on different computers, will collaborate to generate a single image. Each process will work on a small portion of the whole image. Only one of them can write the final image to disk, the ROOT. You must define a constant global variable `ROOT`, equal to rank 0 (the process with ID 0):
 
 ```cpp
@@ -160,6 +167,9 @@ const int ROOT = 0
 In the `main` method, find where the final image is saved. Make sure only the `ROOT` will write it:
 
 ```cpp
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
 // Only the leader is allowed to save
 if (rank == ROOT) {
   output_image.saveJPEGFile(output_file_name);
@@ -172,14 +182,16 @@ This will ensure other processes will not write the file to disk.
 
 6. Workload allocation
 
-From now on, the only function we will modify is `renderLoop`. The workload allocation is the same as we saw with Pthread. Instead of threads however, we are now dealing with processes. The total number of processes is the world size:
+From now on, the only function we will modify is `renderLoop`. The workload allocation is the same as we saw with Pthread. Instead of threads however, we are now dealing with processes.
+
+The total number of processes is the world size:
 
 ```cpp
 int world_size;
 MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 ```
 
-The rank (process ID) of the process is retrieved as follows:
+You'll also need to get access to the rank (process ID) here. Use this snippet of code from earlier for that:
 
 ```cpp
 int rank;
