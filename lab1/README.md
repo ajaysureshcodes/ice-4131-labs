@@ -461,7 +461,7 @@ This is what we do in a new file `helloworld-pthread3.cxx`:
 
 ![helloworld-pthread3.png](assets/helloworld-pthread3.png)
 
-Compile and run `./helloworld-pthread3.cxx`.
+Compile and run `helloworld-pthread3`.
 
 The output is presented as expected. Only one thread writes in the standard output at a time.
 
