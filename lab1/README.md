@@ -416,7 +416,7 @@ Create a new file `helloworld-pthread1.cxx` with the source code below.
 When compiling the program, you will also need to add `-lpthread` to the compile command:
 
 ```bash
-g++ HelloWorld-pthread1.cxx -lpthread -o HelloWorld-pthread1
+g++ helloworld-pthread1.cxx -lpthread -o helloworld-pthread1
 ```
 
 Now run `helloworld-pthread1`. **Can you explain what happens?**
