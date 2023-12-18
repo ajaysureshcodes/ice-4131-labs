@@ -97,7 +97,7 @@ TARGET_LINK_LIBRARIES (main-mpi-omp PUBLIC RayTracing ${ASSIMP_LIBRARY} ${MPI_CX
 
 ### STEP 5: Parallelise Code with OpenMP
 
-If you haven't already done so, copy the contents of `main.cxx` into `main-mpi-omp.cxx`.
+If you haven't already done so, copy the contents of `main-mpi.cxx` into `main-mpi-omp.cxx`.
 
 - Use a `pragma` to parallelise a for loop (see [lab 5](../lab5)).
 - Compile.
