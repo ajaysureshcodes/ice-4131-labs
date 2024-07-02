@@ -36,7 +36,7 @@ To begin with, you will need a user account. Follow the instructions here under 
 
 When applying for an account, you should state that you are joining project: **scw2139**
 
-It will take a few minutes for your account to be activated, so please be patient once you have submitted your application to join the supercomputer. Begin reading the next steps but do not attempt to log in to the supercomputer until you are notified that your account is active!
+It will take some time for your account to be activated, so please be patient once you have submitted your application to join the supercomputer. If you do not have access after 2 working days, please contact the tutor. Begin reading the next steps but do not attempt to log in to the supercomputer until you are notified that your account is active!
 
 ---
 
@@ -46,15 +46,13 @@ Once you have been notified that your account has been opened, follow the instru
 
 [https://portal.supercomputing.wales/index.php/index/accessing-the-system/](https://portal.supercomputing.wales/index.php/index/accessing-the-system/)
 
-There are different instructions for accessing the supercomputer on Windows and Linux/MacOS.
+Detailed instructions on connecting to Hawk for Bangor users can be found here:
 
-Bangor users must log in to Cardiff’s system:
+[https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx](https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx)
 
-```bash
-hawklogin.cf.ac.uk
-```
+> Please note: There are different instructions for accessing the supercomputer on Windows and Linux/MacOS.
 
-Your username must be prefixed by `b.` for example, my username is:
+Remember that when accessing Hawk, your username must be prefixed by `b.` for example, my username is:
 
 ```bash
 b.ptb18xhf
