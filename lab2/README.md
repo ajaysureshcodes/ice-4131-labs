@@ -1,11 +1,11 @@
 # ICE 4131 High Performance Computing - Lab 2
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
@@ -35,11 +35,11 @@ So far you have executed your programs using `./PROGRAM_NAME`, e.g.:
 
 The overall topology of the supercomputer looks like:
 
-![Topology of SCW](assets/topology.png)
+![Topology of SCW](assets/topology-2024.png)
 
-It is not good practice to run your code on the login server when using a supercomputer. This is because the execution will be performed on `hawklogin.cf.ac.uk` directly, rather than on one of the compute nodes you can see on the diagram above. **All** users that are currently logged in are using `hawklogin.cf.ac.uk`, sharing its resources, so every time you run a program there, you are using resources that could be used by other users as they log in. Running large jobs on the login server can deny some users from even accessing the sueprcomputer completely.
+It is not good practice to run your code on the Bangor SSH server or the Hawk login server when using a supercomputer. This is because the execution will be performed on either `ssh.bangor.ac.uk` or `hawklogin.cf.ac.uk` directly, rather than on one of the Hawk compute nodes you can see on the diagram above. **All** users that are currently logged in are using `ssh.bangor.ac.uk` or `hawklogin.cf.ac.uk`, sharing its resources, so every time you run a program there, you are using resources that could be used by other users as they log in. Running large jobs on the login servers can deny some users from even accessing the sueprcomputer completely.
 
-It is therefore better to use [SLURM](https://slurm.schedmd.com/documentation.html) to make sure your code is running on a dedicated compute node rather than a shared resource. This way you can maximise performance, and you won't annoy other users.
+It is therefore essential that you check you're connected to `hawklogin.cf.ac.uk` and use [SLURM](https://slurm.schedmd.com/documentation.html) to make sure your code is running on a dedicated compute node rather than a shared resource. This way you can maximise performance, and you won't annoy other users.
 
 ### `sinfo`
 
@@ -282,70 +282,44 @@ We use an environment variable, `SLURM_CPUS_PER_TASK`. It corresponds to the num
 
 ## STEP 4: Working with remote files locally
 
-Now that you should be fairly up to speed with `nano`, `vi`, or `emacs`, depending on which you have been using, we will now learn how to use Visual Studio Code [VSCode](https://code.visualstudio.com) to make changes to our remote files, from our local machine.
+Now that you should be fairly up to speed with `nano`, `emacs`, `vi`, or `vim`, depending on which you have been using, we will now learn how to use Visual Studio Code [VSCode](https://code.visualstudio.com) to make changes to our remote files, from our local machine:
 
-Follow these steps:
-
-- Open VSCode on your workstation or laptop
-- Navigate to the bottom left of VSCode, the "Open a remote window" icon:
-
-![Remote session icon](assets/remote-session-icon.png)
-
-- From the menu that appears at the top of VSCode, choose: `Connect to Host`
-- Then choose `+ Add New SSH Host` if you do not already see `hawklogin.cf.ac.uk`
-- In the next field where it says `Enter SSH Connection Command`, enter your usual SCW login (with **your** username), for example, **mine** is:
+- On windows, the default location of the OpenSSH config file is at: `%programdata%\ssh\sshd_config` ([read more](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-server-configuration#openssh-configuration-files)). Add the following code to your OpenSSH config, updating `YourBangorUsername` and `YourHawkUsername` accordingly:
 
 ```bash
-b.ptb18xhf@hawklogin.cf.ac.uk
+# Bangor University SSH Gateway
+Host bangor-gateway
+    HostName ssh.bangor.ac.uk
+    User YourBangorUsername
+    Port 22
+
+# Hawk Supercomputer
+Host hawk
+    HostName hawklogin.cf.ac.uk
+    User YourHawkUsername
+    Port 22
+    ProxyJump bangor-gateway
 ```
 
-- When prompted to select an SSH configuration file to update, choose the first option.
-- The following dialog box will appear:
+- For Mac/Linux, follow the **Advanced: Automating Part of Connecting to Hawk by Using a Jump Host** instructions under "Connect Using a Terminal (Linux/Mac)" [here](<https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx#connecting-using-a-terminal-(linux-mac)>).
 
-![Host added](assets/host-added-toast.png)
-
-- Click connect
-  - If the dialog disappears, click the "Open remote window" button again at the bottom right, choose `Connect to Host`, then choose `hawklogin.cf.ac.uk` from the list.
-- A new VSCode window will open and you will be prompted for your password.
-  - If you get an authentication failed error, reset your password at https://my.supercomputing.wales before trying again! 3 failed attempts will ban your IP address for 24 hours.
-- Once this new window appears it will be blank. Choose the explorer button at the top left:
-
-![Explorer](assets/explorer.png)
-
-- Next choose `Open Folder`
-- This should show a list of files at the top inside your home directory. The folder name should include **your** username. Click `OK`.
-- Every time you request access to a new folder, you will be prompted for your password, enter your password to access the folder.
-- You should now see a list of files in the VSCode explorer!
-
-You have now successfully mounted a remote drive to your local machine and can edit files locally as if they were on your PC already.
-
-Furthermore, you can open the VSCode terminal to submit jobs directly from within VSCode:
-
-- Click the debug button at the bottom of VSCode:
-
-![Debug button](assets/debug.png)
-
-- Choose `TERMINAL`
-- Once loaded, you should see the following in the terminal window with **your** username:
+Once your SSH config is configured on Windows/Linux/Mac, you will be able to login to Hawk using a single command:
 
 ```bash
-[b.ptb18xhf@cl2(hawk) ~]$
+ssh hawk
 ```
 
-You can now submit jobs directly from VSCode.
+Enter your Bangor password first, approve the Bangr MFA request on your phone, and when prompted, enter your SCW password.
 
 ---
 
 ## STEP 5: Passwordless access to the Supercomputer
 
-Supercomputing Wales have put together [a guide](https://portal.supercomputing.wales/index.php/index/password-less-access-with-private-keys/) on how to set up SSH keys for passwordless access to the supercomputer, for Windows:
+You can set up SSH keys on your operating system for passwordless entry to the supercomputer. All you need to do after setting this up is enter your Bangor credentials and accept the MFA request.
 
-https://portal.supercomputing.wales/index.php/index/password-less-access-with-private-keys/
+- Windows: Follow **Advanced** instructions under "Connect using PuTTy (Windows)" [here](<https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx#connecting-using-putty-(windows)>).
+- Linux/Mac: Follow step 3 of the **Advanced** instructions under "Connect Using a Terminal (Linux/Mac)" [here](<https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx#connecting-using-a-terminal-(linux-mac)>).
 
-Follow these instructions if you dislike entering your password every time you want to do something on the supercomputer.
-
-For Mac/Linux users, there are guides available online for how to generate SSH key pairs with `keygen`, for example:
-
-https://www.geeksforgeeks.org/how-to-generate-ssh-key-with-ssh-keygen-in-linux/
+You can now log into Hawk without your SCW password.
 
 **This concludes lab 2**

@@ -1,11 +1,11 @@
 # ICE 4131 High Performance Computing - Lab 6
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
@@ -17,7 +17,7 @@ Today's lab will give you an introduction to splitting work across multiple node
 2. Run the code on multiple compute nodes
 3. Plot graphs of runtimes and speedups to compare between serial code, Pthread, OpenMP and MPI.
 
-We will continue using the [SimpleRayTracing](../lab3/SimpleRayTracing/) code provided for you in [lab 3](../lab3/).
+We will continue using the [SimpleRayTracing](../SimpleRayTracing/) program.
 
 - The serial code for `SimpleRayTracing` is available in `src/main.cxx`
 - Add your code to `main-mpi.cxx`
@@ -303,7 +303,7 @@ void checkMPIError(int errorCode) {
 
 2. See [Lab 2](../lab2/) for an explanation.
 
-3. A script is provided for your convenience, [`submit-mpi.sh`](../lab3/SimpleRayTracing/submit-mpi.sh). Edit this file to use your project code and email address as before.
+3. A script is provided for your convenience, [`submit-mpi.sh`](../SimpleRayTracing/submit-mpi.sh). Edit this file to use your project code and email address as before.
 
 `submit-mpi.sh` creates another 4*8=32 scripts named `submit-mpi-*-\*.sh` and submits the jobs with 1, 2, 3, and 4 nodes with 1, 4, 8, 16, 24, 40, 80 and 160 processes on each node.
 
@@ -361,7 +361,7 @@ Only proceed to the next step when everything works as expected. If not, debug y
 
 ### STEP 7: Full Performance Evaluation
 
-1. A shell script, [`createTiming.sh`](../lab3/SimpleRayTracing/createTiming.sh) is provided for your own convenience. It will concatenate the runtimes for all jobs that completed using serial, Pthread, OpenMP, and MPI. It creates a spreadsheet: `timing.csv`.
+1. A shell script, [`createTiming.sh`](../SimpleRayTracing/createTiming.sh) is provided for your own convenience. It will concatenate the runtimes for all jobs that completed using serial, Pthread, OpenMP, and MPI. It creates a spreadsheet: `timing.csv`.
 
 Below is an example of the output that could be obtained from SCW:
 
@@ -414,7 +414,7 @@ Below is an example of the output that could be obtained from SCW:
 | Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz | MPI             | 80                                   | 4               | icc (ICC) 18.0.2 20180210 | 2048x2048  | 22.89          |
 | Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz | MPI             | 160                                  | 4               | icc (ICC) 18.0.2 20180210 | 2048x2048  | 21.81          |
 
-2. Plot the results using Python3 and matplotlib using the [`plotTiming.py`](../lab3/SimpleRayTracing/plotTiming.py) script provided:
+2. Plot the results using Python3 and matplotlib using the [`plotTiming.py`](../SimpleRayTracing/plotTiming.py) script provided:
 
 ```bash
 module load python/3.7.0

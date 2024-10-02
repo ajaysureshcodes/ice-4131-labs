@@ -1,11 +1,11 @@
 # ICE 4131 High Performance Computing - Lab 4
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
@@ -198,7 +198,7 @@ As shown in the code here, our source file for our `pthread` implementation is i
 >
 > You may test your code on the login node, but with only 2 threads, and a small image size, e.g. 32x32.
 
-A small example application and the steps to parallelising it with `pthread` is available in [`lab4/pthread-example`](./pthread-example/). We will however continue editing files within `lab3/SimpleRayTracing`.
+A small example application and the steps to parallelising it with `pthread` is available in [`lab4/pthread-example`](./pthread-example/). We will however continue editing files within `SimpleRayTracing`.
 
 1. You should edit `src/main-pthreads.cxx`. You can copy the contents of `main.cxx` into `src/main-pthreads.cxx`.
 
@@ -236,7 +236,7 @@ A small example application and the steps to parallelising it with `pthread` is 
 
 ## STEP 6: Run on compute nodes with various numbers of threads
 
-There is a script inside [`lab3/SimpleRayTracing`](../lab3/SimpleRayTracing/submit-pthread.sh) that submits jobs with various numbers of threads. You'll need to update it:
+There is a script inside [`SimpleRayTracing`](../SimpleRayTracing/submit-pthread.sh) that submits jobs with various numbers of threads. You'll need to update it:
 
 1. Input your email address at line 11.
 

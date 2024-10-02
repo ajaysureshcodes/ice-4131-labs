@@ -1,11 +1,11 @@
 # ICE 4131 High Performance Computing - Lab 5
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
@@ -291,7 +291,7 @@ To run your program:
 
 2. See `lab2` for an explanation.
 
-3. A script is provided: [`submit-omp.sh`](../lab3/SimpleRayTracing/submit-omp.sh).
+3. A script is provided: [`submit-omp.sh`](../SimpleRayTracing/submit-omp.sh).
 
 You can edit `submit-omp.sh` to use your email address in `echo ##SBATCH --mail-user=YOUREMAILADDRESS@bangor.ac.uk`. (Remove one of the leading `#`s.)
 

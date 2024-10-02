@@ -14,7 +14,7 @@ do
     do
         echo "#!/usr/bin/env bash" > submit-MPI-OMP-$NODES-$thread_number.sh
         echo "#" >> submit-MPI-OMP-$NODES-$thread_number.sh
-        echo "#SBATCH -A scw1563                   # Project/Account (use your own)" >> submit-MPI-OMP-$NODES-$thread_number.sh
+        echo "#SBATCH -A scw2139                   # Project/Account (use your own)" >> submit-MPI-OMP-$NODES-$thread_number.sh
         echo "##SBATCH --mail-user=YOUREMAILADDRESS@bangor.ac.uk  # Where to send mail" >> submit-MPI-OMP-$NODES-$thread_number.sh
         echo "#SBATCH --mail-type=END,FAIL         # Mail events (NONE, BEGIN, END, FAIL, ALL)" >> submit-MPI-OMP-$NODES-$thread_number.sh
         echo "#SBATCH --job-name=RT-MPI-omp-$NODES-$thread_number       # Job name" >> submit-MPI-OMP-$NODES-$thread_number.sh

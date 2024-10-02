@@ -10,7 +10,7 @@ for thread_number in 160 80 40 24 16 8 4 1
 do
 	echo "#!/usr/bin/env bash" > submit-omp-$thread_number.sh
 	echo "#" >> submit-omp-$thread_number.sh
-	echo "#SBATCH -A scw1563                   # Project/Account (use your own)" >> submit-omp-$thread_number.sh
+	echo "#SBATCH -A scw2139                   # Project/Account (use your own)" >> submit-omp-$thread_number.sh
 	echo "##SBATCH --mail-user=YOUREMAILADDRESS@bangor.ac.uk  # Where to send mail" >> submit-omp-$thread_number.sh
 	echo "#SBATCH --mail-type=END,FAIL         # Mail events (NONE, BEGIN, END, FAIL, ALL)" >> submit-omp-$thread_number.sh
 	echo "#SBATCH --job-name=RT-$thread_number-omp       # Job name" >> submit-omp-$thread_number.sh

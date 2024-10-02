@@ -1,11 +1,11 @@
 # ICE 4131 High Performance Computing - Lab 7
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
@@ -110,7 +110,7 @@ If you haven't already done so, copy the contents of `main-mpi.cxx` into `main-m
 
 2. See [Lab 2](../lab2/) for an explanation.
 
-3. A script is provided for your convenience, [`submit-mpi-omp.sh`](../lab3/SimpleRayTracing/submit-mpi-omp.sh). Edit this file to use your project code and email address as before.
+3. A script is provided for your convenience, [`submit-mpi-omp.sh`](../SimpleRayTracing/submit-mpi-omp.sh). Edit this file to use your project code and email address as before.
 
 `submit-mpi-omp.sh` creates another 4*8=32 scripts named `submit-mpi-omp-*-\*.sh` and submits the jobs with 1, 2, 3, and 4 nodes with 1, 4, 8, 16, 24, 40, 80 and 160 threads on each node.
 

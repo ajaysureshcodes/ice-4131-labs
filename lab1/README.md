@@ -1,15 +1,15 @@
 # ICE 4131 High Performance Computing - Lab 1
 
-**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](p.butcher@bangor.ac.uk))
+**Tutor:** Peter Butcher ([p.butcher@bangor.ac.uk](mailto:p.butcher@bangor.ac.uk))
 
 **Lab Assistants**:
 
-- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](i.t.mitchell@bangor.ac.uk))
-- Frank Williams ([f.j.williams@bangor.ac.uk](f.j.williams@bangor.ac.uk))
+- Iwan Mitchell ([i.t.mitchell@bangor.ac.uk](mailto:i.t.mitchell@bangor.ac.uk))
+- Frank Williams ([f.j.williams@bangor.ac.uk](mailto:f.j.williams@bangor.ac.uk))
 
 ### Objectives
 
-Today’s lab will introduce you to the GNU/Linux environment used by Supercomputing Wales ([https://supercomputing.wales](https://supercomputing.wales)). You will learn how to:
+This lab will introduce you to the GNU/Linux environment used by Supercomputing Wales ([https://supercomputing.wales](https://supercomputing.wales)). You will learn how to:
 
 - Log in
 - Write and compile code
@@ -17,7 +17,7 @@ Today’s lab will introduce you to the GNU/Linux environment used by Supercompu
 
 ### Task List
 
-Today's tasks are as follows:
+The tasks for this lab are as follows:
 
 1. [Getting Access to the Supercomputer](#step-1-getting-access-to-the-supercomputer)
 2. [Logging in to the Supercomputer](#step-2-logging-in-to-the-supercomputer)
@@ -46,22 +46,22 @@ Once you have been notified that your account has been opened, follow the instru
 
 [https://portal.supercomputing.wales/index.php/index/accessing-the-system/](https://portal.supercomputing.wales/index.php/index/accessing-the-system/)
 
-Detailed instructions on connecting to Hawk for Bangor users can be found here:
+Bangor users must connect to hawk via Bangor's own SSH server: `ssh.bangor.ac.uk`. Up to date instructions on connecting to Hawk for Bangor users can be found here:
 
 [https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx](https://bangoroffice365.sharepoint.com/sites/DigitalServices/SitePages/eResearch---Access-to-the-Hawk-Supercomputer.aspx)
 
 > Please note: There are different instructions for accessing the supercomputer on Windows and Linux/MacOS.
 
-Remember that when accessing Hawk, your username must be prefixed by `b.` for example, my username is:
+Remember that when accessing Hawk, your username must be prefixed by `b.` for example:
 
 ```bash
-b.ptb18xhf
+b.abc24def
 ```
 
 An example login would therefore be:
 
 ```bash
-b.ptb18xhf@hawklogin.cf.ac.uk
+b.abc24def@hawklogin.cf.ac.uk
 ```
 
 Please note: If you have 2 failed login attempts and fail to login after the third attempt, the IP address of the machine you are using will be banned from accessing the supercomputer for 24 hours. As such, if you cannot remember your password after 2 attempts, reset it at [https://my.supercomputing.wales](https://my.supercomputing.wales).
@@ -91,210 +91,116 @@ We will not be submitting jobs to the supercomputer today but will be writing an
 
 ## STEP 4: Basic Linux Commands
 
-### Command Prompt Basics
+### Command Line Basics
 
-- `man man`
-
-  Displays manual information on the manual command
-
-- `man [command]`
-
-  Displays manual information on command
-
-- `clear`
-
-  Clears the screen
-
-- `exit`
-
-  Exits the command interpreter
+| Command         | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| `man man`       | Displays manual information on the manual (`man`) command |
+| `man [command]` | Displays manual information for command: `[command]`      |
+| `clear`         | Clears the terminal window                                |
+| `exit`          | Exits the current terminal process or command interpreter |
 
 ### Manipulating Directories
 
-- `cd ..`
-
-  Change to the parent directory
-
-- `cd [directory]`
-
-  Change to directory `[directory]`
-
-- `mkdir [directory]`
-
-  Create directory `[directory]`
-
-- `rmdir [directory]`
-
-  Remove directory `[directory]`
+| Command             | Description                                                |
+| ------------------- | ---------------------------------------------------------- |
+| `cd [directory]`    | Change to directory: `[directory]`                         |
+| `cd ..`             | Change to the parent directory                             |
+| `cd /`              | Change to the root directory                               |
+| `cd ~`              | Change to the home directory (your personal storage space) |
+| `mkdir [directory]` | Create directory: `[directory]`                            |
+| `rmdir [directory]` | Remove director: `[directory]`                             |
 
 ### Listing Files
 
-- `ls`
-
-  Display list of files and sub directories in standard format `<name>` excluding hidden files
-
-- `ls -a`
-
-  Display list of files and sub directories in standard format `<name>` including hidden files
-
-- `ls -l`
-
-  Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>`
-
-- `ls -lh`
-
-  Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` with human readable size
-
-- `ls -lt`
-
-  Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` sorted by time
-
-- `ls -lr`
-
-  Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` in reverse order
-
-- `ls -ltrh`
-
-  Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` sorted by time, in reverse order, with human readable size
+| Command    | Description                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ls`       | Display list of files and sub directories in standard format `<name>` _excluding_ hidden files                                                                         |
+| `ls -a`    | Display list of files and sub directories in standard format `<name>` _including_ hidden files                                                                         |
+| `ls -l`    | Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>`                                                            |
+| `ls -lh`   | Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` with human readable size                                   |
+| `ls -lt`   | Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` sorted by time                                             |
+| `ls -lr`   | Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` in reverse order                                           |
+| `ls -ltrh` | Display list of files and sub directories in long format `<permissions  owner  group  size  datetime name>` sorted by time, in reverse order, with human readable size |
 
 ### Moving Files
 
-- `mv [source] [dest]`
-
-  Move file `[source]` to file `[dest]`
-
-- `mv -i [source] [dest]`
-
-  - Move file `[source]` to file `[dest]`
-  - Prompt before overwriting `[dest]` if it exists
-
-- `mv -f [source] [dest]`
-  - Move file `[source]` to file `[dest]`
-  - Overwrite `[dest]` if it exists
+| Command                 | Description                                                                            |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| `mv [source] [dest]`    | Move file `[source]` to file `[dest]`                                                  |
+| `mv -i [source] [dest]` | Move file `[source]` to file `[dest]`. Prompt before overwriting `[dest]` if it exists |
+| `mv -f [source] [dest]` | Move file `[source]` to file `[dest]`. Overwrite `[dest]` if it exists                 |
 
 ### Removing Files
 
-- `rm [file]`
-
-  Remove file `[file]`
-
-- `rm -i [file]`
-
-  - Remove file `[file]`
-  - Prompt before removing
-
-- `rm -R [directory]`
-  - Remove directory `[directory]`
-  - Remove all sub directories and files
+| Command             | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `rm [file]`         | Remove file `[file]`                                                 |
+| `rm -i [file]`      | Remove file `[file]`. Prompt before removing                         |
+| `rm -R [directory]` | Remove directory `[directory]`. Remove all sub directories and files |
 
 ### Copying Files
 
-- `cp [source][dest]`
-
-  Copy file `[source]` to file `[dest]`
-
-- `cp -i [source][dest]`
-
-  - Copy file `[source]` to file `[dest]`
-  - Prompt before overwriting `[dest]` if it exists
-
-- `cp -R [source][dest]`
-
-  Copy directory [source] to directory [dest]Copy all sub directories and files
+| Command                | Description                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| `cp [source][dest]`    | Copy file `[source]` to file `[dest]`                                                  |
+| `cp -i [source][dest]` | Copy file `[source]` to file `[dest]`. Prompt before overwriting `[dest]` if it exists |
+| `cp -R [source][dest]` | Copy directory [source] to directory [dest]. Copy all sub directories and files        |
 
 ### Displaying Files
 
-- `more [file]`
-  - Display `[file]` on the screen
-  - Will scroll through one screen at a time
-  - Press space to scroll one screen at a time
-  - Press enter to scroll one line at a time
+| Command       | Description                                                                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `more [file]` | Display `[file]` on the screen. Will scroll through one screen at a time. Press space to scroll one screen at a time. Press enter to scroll one line at a time |
 
 ### Comparing Files
 
-- `diff [file1] [file2]`
-
-  Display differences between `[file1]` and `[file2]`
-
-- `fgrep "string" [file]`
-
-  Find “`string`” in `[file]`
-
-- `sort [file]`
-
-  Sort `[file]`
+| Command                 | Description                                         |
+| ----------------------- | --------------------------------------------------- |
+| `diff [file1] [file2]`  | Display differences between `[file1]` and `[file2]` |
+| `fgrep "string" [file]` | Find “`string`” in `[file]`                         |
+| `sort [file]`           | Sort `[file]`                                       |
 
 ### Command Modifiers
 
-- Wildcards allow you to specify multiple items to operate on
-  - `ls *.txt`
-  - `rm *.txt`
-- Redirection allows you to direct the output of one command to a file
-  - `sort unsorted.txt > sorted.txt`
-- Filters are external commands that change data in some manner
-  - `fgrep "string" [file]`
-- Pipes let you direct the output of one command as input to another
-  - `ls | find "txt"`
+| Modifier    | Symbol | Command Example                  | Description                                                          |
+| ----------- | ------ | -------------------------------- | -------------------------------------------------------------------- |
+| Wildcard    | `*`    | `ls *.txt`                       | Wildcards allow you to specify multiple items to operate on          |
+| Redirection | `>`    | `sort unsorted.txt > sorted.txt` | Redirection allows you to direct the output of one command to a file |
+| Filters     | `""`   | `fgrep "string" [file]`          | Filters are external commands that change data in some manner        |
+| Pipes       | `\|`   | `ls \| find "txt"`               | Pipes let you direct the output of one command as input to another   |
 
 ### Other Commands
 
-- `who`
-
-  Show who is logged on
-
-- `top`
-
-  Show which tasks are running
-
-- `watch`
-
-  Run a task repeatedly
-
-- `history`
-
-  Show which tasks you ran
-
-- `date`
-
-  Display or set the date and time
-
-- `cat`
-
-  Concatenate files and print on screen
-
-- `head`
-
-  Print top of file on screen
-
-- `tail`
-
-  Print bottom of file on screen
-
-- `uniq`
-
-  Report or omit repeated lines
-
-- `pwd`
-
-  Display name of current/working directory
-
-- `hostname`
-
-  Display the system’s host name
-
-- `touch [filename]`
-
-  Create a file [filename]
+| Command                                 | Description                                                                                     |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `who`                                   | Show who is logged on                                                                           |
+| `top`                                   | Show which tasks are running                                                                    |
+| `watch`                                 | Run a task repeatedly                                                                           |
+| `history`                               | Show which tasks you ran                                                                        |
+| `date`                                  | Display or set the date and time                                                                |
+| `cat`                                   | Concatenate files and print on screen                                                           |
+| `head`                                  | Print top of file on screen                                                                     |
+| `tail`                                  | Print bottom of file on screen                                                                  |
+| `uniq`                                  | Report or omit repeated lines                                                                   |
+| `pwd`                                   | Display name of current/working directory                                                       |
+| `hostname`                              | Display the system’s host name                                                                  |
+| `touch [filename]`                      | Create a file `[filename]`                                                                      |
+| `history \| grep "string"`              | Search the output of `history` for `string` with `grep`                                         |
+| `history \| grep "string" > search.txt` | Search the output of `history` for `string` with `grep` and redirect the output to `search.txt` |
 
 ### Editing Files
 
-There are three main console-based text editor:
+There are four main console-based text editor:
 
-- Nano (`nano`)
-- Emacs (`emacs`)
-- Vi (`vi`)
+| Editor | Command |
+| ------ | ------- |
+| Nano   | `nano`  |
+| Emacs  | `emacs` |
+| Vi     | `vi`    |
+| Vim    | `vim`   |
 
-If you are not familiar with Vi nor Emacs, then I recommend you to use Nano. It is easier to handle.
+If you are not familiar with Emacs, Vi, or Vim, then Nano is recommend as it is easier to get started with.
 
 ---
 
@@ -320,7 +226,7 @@ This will list all the available software for you to use. To look at compilers o
 module avail compiler
 ```
 
-This will return a list of available compilers. For us, we will requier one tool to compile some source code, and to run the resulting executabel code. At present compilation tools are not available, for example, if you type:
+This will return a list of available compilers. For us, we will require one tool to compile some source code, and to run the resulting executable code. At present compilation tools are not available, for example, if you type:
 
 ```bash
 icc
@@ -348,7 +254,9 @@ To compile your source code, just type:
 g++ helloworld.cxx -o helloworld
 ```
 
-If you didn’t make any errors, it should compile without errors and a new file helloworld was created. To run it, type:
+`-o` is a flag which in this case means output which sets the path and file name of the output file to the next argument.
+
+If you didn’t make any errors, it should compile without errors and a new executable file `helloworld` was created. To run it, type:
 
 ```bash
 ./helloworld
@@ -360,16 +268,16 @@ If you didn’t make any errors, it should compile without errors and a new file
 
 ### General Concepts
 
-A very common strategy to parallelise code is to identify for/while loops and replace them by parallel code. In the listing above, there is a for loop at Line 5. We are going to parallelise it using POSIX Threads (usually referred to as Pthreads). It is a POSIX standard for threads. Pthreads are a simple and effective way of creating a multi-threaded application.
+A very common strategy to parallelise code is to identify for/while loops and replace them with parallel code. In the listing above, there is a for loop at Line 4. We are going to parallelise it using POSIX Threads (usually referred to as Pthreads). It is a POSIX standard for threads. Pthreads are a simple and effective way of creating a multi-threaded application.
 
 There are 5 main steps to convert serial code to parallel code with Pthreads:
 
-1. All C/C++ programs using Pthreads need to include the pthread.h header file.
+1. All C/C++ programs using Pthreads need to include the `pthread.h` header file.
 2. `#include <pthread.h>` at the top of your file.
 3. Create an entry point for the thread
    - When creating a thread using Pthreads, you need to point it to a function for it to start execution.
    - It is the thread's callback function.
-   - It returns `void*` and take a single `void*` argument.
+   - It returns `void*` and takes a single `void*` argument.
    - For example, if you want the function to take an integer argument, you will need to pass the address of the integer and dereference it later. This may sound complicated but, as is shown below, it's pretty simple. An example function signature would be:
 
 ```c
@@ -411,7 +319,7 @@ Create a new file `helloworld-pthread1.cxx` with the source code below.
 
 ![helloworld-pthread1.png](assets/helloworld-pthread1.png)
 
-When compiling the program, you will also need to add `-lpthread` to the compile command:
+When compiling the program, you will also need to add the `-lpthread` flag to the compile command:
 
 ```bash
 g++ helloworld-pthread1.cxx -lpthread -o helloworld-pthread1
@@ -434,7 +342,7 @@ Then it is possible to retrieve the numerical value (see Line 47).
 Create a new file `helloworld-pthread2.cxx` with this source code. You can copy `helloworld-pthread1.cxx` into `helloworld-pthread2.cxx` to save some time:
 
 ```bash
-$ cp helloworld-pthread1.cxx helloworld-pthread2.cxx
+cp helloworld-pthread1.cxx helloworld-pthread2.cxx
 ```
 
 Now modify the content of `helloworld-pthread2.cxx`.
