@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(ICE4131-202021-Assignment)
+project(ICE4131LABS)
 
 
 # Enable C++ 11################################################################
