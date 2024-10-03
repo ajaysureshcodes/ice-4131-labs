@@ -531,8 +531,8 @@ TriangleMesh createBackground(const Vec3& anUpperBBoxCorner,
     };
 
     TriangleMesh background_mesh(vertices, indices, text_coords);
-    Image cloud_texture("IMG_0211.jpg" /*"cloud2.jpg"*/);
-    background_mesh.setTexture(cloud_texture);
+    Image background_texture("background.jpg");
+    background_mesh.setTexture(background_texture);
 
     return (background_mesh);
 }
