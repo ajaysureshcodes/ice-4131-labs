@@ -8,7 +8,7 @@ A simple ray-tracer used as an example application for ICE-4131 High Performance
 The same code was also executed on [Supercomputing Wales](https://www.supercomputing.wales/) with two different compilers (g++ 4.8.5 released in 2015 and icc 19.1.2.254 released in 2020).
 The code produces a 2048x2048 image as follows:
 
-![Rendered image.](test.jpg)
+![Rendered image.](assets/test.jpg)
 
 | Model name:        | AMD FX(tm)-8350 Eight-Core Processor | Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz | Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz               |
 | ------------------ | ------------------------------------ | ---------------------------------------- | ------------------------------------------------------ |
@@ -58,6 +58,6 @@ The code produces a 2048x2048 image as follows:
 
 In the plot below, `x` depicts the runtime when the program is compiled in Release mode, and `+` in Debug mode.
 
-![Plot of the runtimes](runtimes.png)
+![Plot of the runtimes](assets/runtimes.png)
 
-![Plot of the speedup](speedup.png)
+![Plot of the speedup](assets/speedup.png)
